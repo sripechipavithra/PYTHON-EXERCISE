@@ -1,0 +1,5 @@
+Lst1=eval(input("Enter List1:"))
+Lst2=eval(input("Enter List2:"))
+Lst3=Lst1+Lst2
+print("Given List are :",Lst1,"and",Lst2)
+print("The sum of list are:",Lst3)
