@@ -1,0 +1,39 @@
+from functools import reduce
+
+# Function to convert Celsius to Fahrenheit
+def fahrenheit(T):
+    return ((float(9)/5) * T + 32)
+
+# Function to convert Fahrenheit to Celsius
+def celsius(T):
+    return (float(5)/9) * (T - 32)
+
+# List of temperatures in Celsius
+temperatures = (36.5, 37, 37.5, 38, 39)
+
+# Convert Celsius to Fahrenheit
+F = map(fahrenheit, temperatures)
+
+# Convert Fahrenheit back to Celsius
+C = map(celsius, F)
+
+# Create a list of temperatures in Fahrenheit
+temperature_in_fahrenheit = list(map(fahrenheit, temperatures))
+
+# Convert back to Celsius to verify if the conversion is correct
+temperature_in_celsius = list(map(celsius, temperature_in_fahrenheit))
+
+print(temperature_in_fahrenheit)  # Print temperatures in Fahrenheit
+print(temperature_in_celsius)     # Print temperatures back in Celsius
+
+# Filter temperatures between 37 and 38 Celsius
+filter_result = list(filter(lambda x: x >= 37 and x <= 38, temperatures))
+print(filter_result)
+
+# Reduce the temperatures by multiplying them together
+reduce_result = reduce(lambda num1, num2: num1 * num2, temperatures)
+print(reduce_result)
+
+# Reduce the temperatures by subtracting them from each other
+reducesum = reduce(lambda num1, num2: num1 - num2, temperatures)
+print(reducesum)
