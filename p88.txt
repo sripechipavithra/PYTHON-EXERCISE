@@ -1,0 +1,21 @@
+# Sum of digits until it reduces to a single digit
+
+# Reading number
+number = int(input("Enter number: "))
+
+# Finding sum
+total_sum = 0
+step = 1
+
+condition = True
+
+while condition:
+    while number:
+        total_sum += number % 10  # Add last digit to sum
+        number //= 10  # Remove last digit from the number
+    
+    print("Step-%d Sum: %d" % (step, total_sum))  # Print the current step sum
+    number = total_sum  # Set number to the new sum
+    total_sum = 0  # Reset total_sum for the next step
+    step += 1  # Increment the step
+    condition = number > 9  # Continue if the number has more than one digit

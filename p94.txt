@@ -1,0 +1,13 @@
+def no_notes(a):
+    Q = [500, 200, 100, 50, 20, 10]
+    x = 0
+    for i in range(6):
+        q = Q[i]
+        x += int(a / q)  # Number of notes of denomination q
+        a = int(a % q)   # Remaining amount after using notes of denomination q
+    if a > 0:
+        x = -1  # Return -1 if the amount cannot be fully represented with the available denominations
+    return x
+
+print(no_notes(500))  # Should return 1, since 500 can be represented with one 500 note
+print(no_notes(560))  # Should return 3, since 560 can be represented with 1x500, 1x50, and 1x10

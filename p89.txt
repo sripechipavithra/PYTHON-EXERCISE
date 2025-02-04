@@ -1,0 +1,50 @@
+import numpy as np
+
+# Reading the order of the magic square
+order = int(input("Enter order of magic square (order must be odd): "))
+
+# If an even number is given, increment it by one
+if order % 2 == 0:
+    order = order + 1
+    print("Given order is even so it is incremented by 1.")
+
+# Middle index
+mid = order // 2
+
+# Create an empty magic square (initialized with zeros)
+magic = np.zeros((order, order), dtype=int)
+
+# Starting position
+k = mid
+j = 0
+
+# Filling the magic square using the Siamese method
+for i in range(1, order * order + 1):
+    magic[j][k] = i  # Place the number
+
+    # Save current position before moving
+    p, q = j, k
+
+    # Move up and to the right
+    j, k = j - 1, k + 1
+
+    # Wrap around if the indices go out of bounds
+    if j < 0:
+        j = order - 1
+    if k >= order:
+        k = 0
+
+    # If the new position is already filled, move down instead
+    if magic[j][k] != 0:
+        j = p + 1
+        k = q
+
+# Printing the generated magic square
+print("Generated Magic Square is:")
+for row in magic:
+    print("|", end="")
+    for val in row:
+        print(f" {val:4d} |", end="")
+    print()
+    print("-" * (order * 6))  # Prints a separator line
+

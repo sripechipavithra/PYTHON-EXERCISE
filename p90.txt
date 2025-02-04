@@ -1,0 +1,26 @@
+# Read the number of rows (which should be even)
+row = int(input("Enter number of rows (even): "))
+
+# Half of the rows (used for the upper and lower part of the butterfly)
+n = row // 2
+
+print("Generated butterfly pattern is:\n")
+
+# Upper part of the butterfly
+for i in range(1, n + 1):
+    for j in range(1, 2 * n + 1):
+        if j > i and j < 2 * n + 1 - i:
+            print(" ", end="")
+        else:
+            print("* ", end="")
+    print()
+
+# Lower part of the butterfly
+for i in range(n, 0, -1):
+    for j in range(2 * n, 0, -1):
+        if j > i and j < 2 * n + 1 - i:
+            print(" ", end="")
+        else:
+            print("* ", end="")
+    print()
+
