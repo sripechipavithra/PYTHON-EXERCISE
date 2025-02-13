@@ -1,0 +1,26 @@
+import mysql.connector
+
+# Establishing the connection to MySQL
+conn = mysql.connector.connect(
+    host='localhost',
+    user='root',
+    passwd='',
+    database='db1'
+)
+
+# Creating a cursor object to interact with the database
+cursor = conn.cursor()
+
+# Inserting a record into the 'books' table
+cursor.execute("INSERT INTO books VALUES (101, 'Python')")
+print("Record inserted successfully")
+
+# Fetching all records from the 'books' table
+cursor.execute("SELECT * FROM books")
+result = cursor.fetchall()
+
+# Printing the result
+print(result)
+
+# Closing the connection
+conn.close()

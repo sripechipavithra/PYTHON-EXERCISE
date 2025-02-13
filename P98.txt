@@ -1,0 +1,15 @@
+# Writing to the file 'myfile.txt' in write ('w') mode
+f = open('myfile.txt', 'w')
+f.write('My first file')
+f.close()
+
+# Opening the file in append ('a') mode to add more content
+f = open('myfile.txt', 'a')
+f.write('\nWelcome Every one')
+f.write('\nAppend Mode')
+f.close()
+
+# Opening the file in read ('r') mode to print its content
+f = open('myfile.txt', 'r')
+print(f.read())
+f.close()

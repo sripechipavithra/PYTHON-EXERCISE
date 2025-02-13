@@ -1,0 +1,9 @@
+# Taking user input for the base and the exponent
+m = int(input('Enter First value: '))
+n = int(input('Enter Second value: '))
+
+# Calculating m raised to the power of n
+p = m ** n
+
+# Printing the result
+print('{0} raised to {1} = {2}'.format(m, n, p))
